@@ -1,0 +1,111 @@
+<html>
+<head><title>JS Validation</title>
+<style>
+ .signup{
+         border:1px soild;
+         font:normal 14px helvetica;
+         color:BLACK;
+        }</style>
+
+<script>
+
+       function validate(form)
+          {
+             fail=validateForename(form.forename.value)
+             fail+=validateSurname(form.surname.value)
+             fail+=validateUsername(form.username.value)
+             fail+=vaildatePassword(form.password.value)
+             fail+=validateAge(form.age.value)
+                  
+
+            if(fail == "") return true
+            else { alert(fail);return false}
+
+function validateForename(field)
+{
+ return (field=="") ? "No forename is entered.\n":""
+}
+
+function validateSurname(field)
+{
+ return (field=="") ? "No surname is entered.\n":""
+}
+
+function validateUsername(field)
+{
+  if(field=="") return "No username is entered.\n"
+  else if(field.length < 5) 
+       return "Enter username with atleast 5 char"
+  else if(/[^a-zA-Z0-9_-]/.test(field)) 
+       return "Only a-z, A-Z , 0-9 ,-  and _ are allowed"
+   return ""
+}
+
+function validatePassword(field)
+{ 
+ if(field=="")return "No password entered"
+ else if(field.length<6) 
+    return "Enter a password with atleast 6 characters"
+ else if(!/[A-Z]/.test(field) || 
+         !/[0-9]/.test(field)) 
+ return "Password only contain a-z,A-Z and 0-9.\n"
+ return ""
+}
+
+function validateAge(field)
+{
+ if(isNaN(field)) return"No age entered.\n"
+ else if(field<18 || field>110) return "Age must be between 18 to 110."
+ return ""
+}
+
+function validateEmail(field)
+{
+ if (field=="") return "No Email is entered "
+ else if(!((field.indexOf(".")>0) && 
+           (field.indexOf("@")>0)) || 
+            /[a-zA-Z0-9.@_-]/.test(field)) 
+   return "The email address is invalid.\n"
+return ""}
+}
+</script>
+</head>
+ <body>
+      <table border="0" cellpadding="2" cellspacing="5" bgcolor="#eeeeee">
+       <th colspan="2" align="center">Signup Form</th>
+       <form method="post" action="adduser.php" onsubmit="return validate(this)">
+       <tr><td>Forename
+          </td>
+           <td><input type="text" maxlength="32" name="forename">
+          </td>
+      </tr>
+       <tr><td>Surname
+          </td>
+           <td><input type="text" maxlength="32" name="surname">
+          </td>
+      </tr>
+       <tr><td>Username
+          </td>
+           <td><input type="text" maxlength="32" name="username">
+          </td>
+      </tr>
+       <tr><td>Password
+          </td>
+           <td><input type="text" maxlength="32" name="password">
+          </td>
+      </tr> 
+       <tr><td>Age
+          </td>
+           <td><input type="text" maxlength="3" name="age">
+          </td>
+      </tr>
+       <tr><td>Email
+          </td>
+           <td><input type="text" maxlength="64" name="email">
+          </td>
+      </tr>
+       <tr><td colspan="2" align="center"><input type="submit" value="Signup"></td></tr>
+   </form>
+  </table>
+ </body>
+</html>

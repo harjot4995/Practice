@@ -1,0 +1,38 @@
+function validateForename(field)
+{
+ return (field=="") ? "No forename is entered.\n":""
+}
+
+function validateSurname(field)
+{ 
+ return (field=="") ? "No surname is entered.\n":""
+}
+
+function validateUsername(field)
+{
+  if(field=="") return "No username is entered.\n"
+  else if(field.length < 5) return "Enter username with atleast 5 char"
+  else if(/[^a-zA-Z0-9_-]/.test(field)) return "Only a-z, A-Z , 0-9 ,-  and _ are allowed"
+   return ""
+}
+
+function validatePassword(field)
+{ 
+ if(field=="")return "No password entered"
+ else if(field.length<6) return "Enter a password with atleast 6 characters"
+ else if(!/[a-z}/.test(field) || !/[A-Z]/.test(field) || !/[0-9]/.test(field)) return "Password only contain a-z,A-Z and 0-9"
+ return ""
+}
+
+function validateAge(field)
+{
+ if(isNaN(field)) return"No age entered"
+ else if(age<18 || age>110) return "Age must be between 18 to 110."
+ return ""
+}
+
+function validateEmail(field)
+{
+ if (field=="") return "No Email is entered "
+ else if(!((field.indexOf(".")>0 && (field.indexOf("@")>0) || /[a-zA-Z0-9.@_-]/.test(field)) return email"The email address is invalid.\n"
+return ""}

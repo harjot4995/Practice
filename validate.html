@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>JS Validation</title>
+  <style>.signup{color:#444444;
+                 border:1px solid #999999;
+                 font:normal 14px helvetica;
+                }
+  </style>
+ <script>
+         function validate(form)
+          {
+           fail= validateForename(form.formname.value)
+           fail+=validateSurname(form.surname.value)
+           fail+=validateUsername(form.username.value)
+           fail+=validatePassword(form.password.value)
+           fail+=validateAge(form.age.value)
+           fail+=validateEmail(form.email.value)
+
+           if(fail=="") return true 
+           else {alert(fail);return false }
+          }
+
+function validateForename(field)
+{ 
+  return (field == "") ? "No Forename is entered \n": ""
+}
+
+function validateSurname(field)
+{ 
+  return (field=="") ? "No Surname is entered \n":""
+}
+
+function validateUsername(field)
+{
+ if(field="") return "No Username entered \n"
+ else if(field.length <5) return "At least enter a Username which is longer than 5 characters \n"
+ else if(/[^a-zA-Z0-9_-]/.test(field)) return "Username only contains a-z,A-Z,0-9,_ and - \n"
+ else return ""
+}
+
+function validatePassword(field)
+{ 
+if(field="") return "No password entered \n"
+ else if(field.length<6) return "Min 6 characters needed for Password \n"
+ else if(!/[a-z]/.test(field) || !/[A-Z]/.test(field) || !/[0-9]/.test(field))
+          { return "Password require a-z,A-Z and 0-9 once each \n"}
+ else return ""
+}
+
+function validateAge(field)
+{ 
+if (field=="") return "No age entered \n"
+else if(field<18 || filed>110) return "Age must be between 18 to 110 \n"
+ else return ""
+}
+
+function validateEmail(field)
+{
+ if(field=="") return"No email entered \n"
+ else if(!(field.indexOf(".") >0 &&
+           field.indexOf("@") >0)||
+           /[^a-zA-Z0-9._-@]/.test(field)) return "Invalid email address \n"
+ else return ""
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+ <table border="0" cellpadding="2" cellspacing="5" bgcolor="#eeeeee">
+  <th colspan="2" align="center">Signup Form</th>
+  <form method="POST" action="adduser.php" onsubmit="return validate(this)">
+  <tr><td>Forename</td>
+      <td><input type="text" name="forename" maxlength="32"></td>
+  </tr>
+  <tr><td>Surname</td>
+      <td><input type="text" name="surname" maxlength="32"></td>
+ </tr>
+  <tr><td>Username</td>
+      <td><input type="text" name="username" maxlength="16"></td>
+  </tr>
+  <tr><td>Password</td>
+      <td><input type="text" name="password" maxlength="64"></td>
+ </tr>
+  <tr><td>Age</td>
+      <td><input type="text" name="age" maxlength="3" ></td>
+ </tr>
+ <tr><td>Email</td>
+     <td><input type="text" name="email" maxlength="32"></td>
+ </tr>
+ <tr><td colspan="2" align="center"><input type="submit" value="Signup"></td></tr>
+ </form>
+ </table>
+</body>
+</html>
+

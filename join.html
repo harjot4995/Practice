@@ -1,0 +1,14 @@
+<html>
+<body>
+<script>
+ pets = Array("cats","Dogs","Rabbit","Hamster")
+
+for(j=0;j<pets.length;++j)
+{pets[j]=pets[j].charAt(0).toUpperCase()+ pets[j].substr(1,pets[j].length-1).toLowerCase()}
+
+document.write(pets.join()+"<br>")
+document.write(pets.join(" ")+"<br>")
+document.write(pets.join(" : ")+"<br>")
+</script>
+</body>
+</html>

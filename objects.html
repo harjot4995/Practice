@@ -1,0 +1,39 @@
+<html>
+<body>
+<script>
+  function User(forename,username,password)
+  {
+      this.forename= forename
+      this.username= username
+      this.password= password
+}
+
+User.prototype.showUser = function()
+{
+  document.write("Forename:"+ this.forename+"<br>")
+  document.write("username:"+this.username+"<br>")
+  document.write("password:"+this.password+"<br>")
+}
+
+details = new User("Wolfgang","w.a.mozart","composer")
+details.greeting ="hello"
+document.write(details.greeting+"<br>")
+details.showUser()
+balls={ "golf":"Golf balls, 6",
+        "tennis":"Tennis balls, 3",
+        "soccer": "Soccer balls, 1",
+        "ping":"Ping pong balls, 1 doz"}
+
+for(ball in balls)
+ document.write(ball+":"+balls[ball]+"<br>")
+
+pets = ["Cat","Dog","Rabbit","Hamster"]
+pets.forEach(output)
+
+function output(element,index,array)
+{
+ document.write("The element at index "+index+" is "+element+" it is also "+array[index]+"<br>")
+}
+</script>
+</body>
+</html>
